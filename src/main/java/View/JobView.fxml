@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.JobController">
+   <content>
+      <BorderPane prefHeight="332.0" prefWidth="437.0">
+         <top>
+            <Label text="Example Job" BorderPane.alignment="CENTER" />
+         </top>
+         <bottom>
+            <Button id="editbutton" fx:id="editbutton" mnemonicParsing="false" onAction="#editbuttononclick" text="Edit" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="633.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox spacing="10">
+                     <children>
+                        <Label id="Namefield" text="Name:" />
+                        <Label id="jobname" fx:id="nameLabel" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="10">
+                     <children>
+                        <Label id="Namefield" text="Company:" />
+                        <Label id="comname" fx:id="companylabel" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="10">
+                     <children>
+                        <Label id="Namefield" text="Description:" />
+                        <Label id="descname" fx:id="descriptionlabel" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="10">
+                     <children>
+                        <Label id="Namefield" text="Skill requirement:" />
+                        <ListView fx:id="skilllist" prefHeight="70.0" prefWidth="178.0" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="10">
+                     <children>
+                        <Label id="Namefield" text="Person applied" />
+                        <ListView id="appliedpersonlist" fx:id="appliedpersonlist" prefHeight="70.0" prefWidth="178.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </content>
+</ScrollPane>

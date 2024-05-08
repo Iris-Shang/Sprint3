@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane prefHeight="507.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Comeditcontroller">
+   <content>
+      <AnchorPane prefHeight="480.0" prefWidth="334.0">
+      
+      
+      
+      
+         <VBox alignment="TOP_CENTER" prefHeight="437.0" prefWidth="390.0" spacing="10">
+      
+             <Label text="Company" />
+      
+             <!-- Display user information -->
+      
+             <HBox spacing="10">
+      
+                 <Label id="Namefield" text="Name:" />
+      
+                 <Label fx:id="nameLabel" />
+      
+             </HBox>
+      
+             <HBox prefHeight="17.0" prefWidth="127.0" spacing="10">
+      
+                 <Label text="Description:" />
+      
+                 <Label id="olddescLabel" fx:id="olddescLabel" />
+               <TextField id="editdesc" fx:id="editdesc" onMousePressed="#editdescpressed" />
+      
+             </HBox>
+            <HBox prefHeight="50.0" prefWidth="127.0" spacing="10">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="Projects:" />
+                        <Button id="removeprobutton" fx:id="removeprobutton" mnemonicParsing="false" onAction="#clickonremoveprobutton" text="Remove" />
+                     </children>
+                  </VBox>
+                  <ListView id="comprolist" fx:id="comprolist" maxHeight="1.7976931348623157E308" prefHeight="50.0" prefWidth="220.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="127.0" spacing="10">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="Job Posted:" />
+                        <Button id="removejobpostbutton" fx:id="removejobpostbutton" mnemonicParsing="false" onAction="#clickonremovejobpostbutton" text="Remove" />
+                     </children>
+                  </VBox>
+                  <ListView id="comjoblist" fx:id="comjoblist" prefHeight="50.0" prefWidth="179.0" />
+               </children>
+            </HBox>
+      
+             <HBox spacing="10">
+               <VBox>
+                  <children>
+            
+                       <Label text="Employee:" />
+                     <Button id="removeemplbutton" fx:id="removeemplbutton" mnemonicParsing="false" onAction="#cilckonremoveemplbutton" text="Remove" />
+                  </children>
+               </VBox>
+               <ListView id="employeelist" fx:id="employeelist" prefHeight="50.0" prefWidth="195.0" />
+      
+             </HBox>
+            <HBox spacing="10">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="Rest Project" />
+                        <Button id="addprobutton" fx:id="addprobutton" mnemonicParsing="false" onAction="#cilckonaddprobutton" text="Add" />
+                     </children>
+                  </VBox>
+                  <ListView id="restpro" fx:id="restpro" prefHeight="50.0" prefWidth="195.0" />
+               </children>
+            </HBox>
+            <HBox spacing="10">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="Rest Job" />
+                        <Button id="addjobbutton" fx:id="addjobbutton" mnemonicParsing="false" onAction="#cilckonaddjobbutton" text="Add" />
+                     </children>
+                  </VBox>
+                  <ListView id="restjob" fx:id="restjob" prefHeight="50.0" prefWidth="195.0" />
+               </children>
+            </HBox>
+            <HBox spacing="10">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="74.0" text="Rest Person" />
+                        <Button id="addpersonbutton" fx:id="addpersonbutton" mnemonicParsing="false" onAction="#cilckonaddpersonbutton" text="Add" />
+                     </children>
+                  </VBox>
+                  <ListView id="restperson" fx:id="restperson" prefHeight="50.0" prefWidth="228.0" />
+               </children>
+            </HBox>
+      
+         </VBox>
+      
+          <Button id="cancelbutton" fx:id="cancelbutton" layoutX="232.0" layoutY="453.0" onAction="#handlecancelbutton" text="Cancel" />
+         <Button id="savebutton" fx:id="savebutton" layoutX="42.0" layoutY="453.0" onAction="#cilckonsavebutton" text="Save" />
+      
+      </AnchorPane>
+   </content>
+</ScrollPane>
