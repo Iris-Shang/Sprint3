@@ -160,7 +160,7 @@ public class Comeditcontroller {
     	}
     	
         FXMLLoader loader = new FXMLLoader();
-	    loader.setLocation(BB.class.getResource("../main/MainView.fxml"));
+	    loader.setLocation(BB.class.getResource("../main/Mainview.fxml"));
 	    BorderPane view;
 		try
 		{
@@ -209,7 +209,7 @@ public class Comeditcontroller {
     @FXML
     void handlecancelbutton(ActionEvent event) {
     	FXMLLoader loader = new FXMLLoader();
-	    loader.setLocation(BB.class.getResource("../main/MainView.fxml"));
+	    loader.setLocation(BB.class.getResource("../main/Mainview.fxml"));
 	    BorderPane view;
 		try
 		{

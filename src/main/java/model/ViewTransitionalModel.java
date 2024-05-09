@@ -172,7 +172,7 @@ public class ViewTransitionalModel implements ViewTransitionModelInterface
 	{
 	    FXMLLoader loader = new FXMLLoader();
 	    loader.setLocation(ViewTransitionalModel.class
-	        .getResource("../View/SkilleditView.fxml"));
+	        .getResource("../View/Skilleditview.fxml"));
 	    try {
 	      Node view = loader.load();
 	      mainview.setCenter(view);

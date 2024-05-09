@@ -57,7 +57,7 @@ public class ComController {
     @FXML
     void handleEditProfileButtonAction(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
-	    loader.setLocation(BB.class.getResource("../main/MainView.fxml"));
+	    loader.setLocation(BB.class.getResource("../main/Mainview.fxml"));
 	    BorderPane view;
 		try
 		{

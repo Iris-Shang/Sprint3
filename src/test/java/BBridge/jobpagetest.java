@@ -194,7 +194,7 @@ class jobpagetest extends ApplicationTest
 		
         m = new BBModel(stage,1000,3,7,12);
         FXMLLoader loader = new FXMLLoader();
-	    loader.setLocation(BB.class.getResource("../main/MainView.fxml"));
+	    loader.setLocation(BB.class.getResource("../main/Mainview.fxml"));
 	    BorderPane view;
 		try
 		{
@@ -625,7 +625,8 @@ class jobpagetest extends ApplicationTest
     	for(Skill i: l0)
     	{
     		Assertions.assertThat(c0).hasListCell(i);   		
-    	}    	
+    	}
+    	
     	c1a = getpl2(robot);
         
       	Assertions.assertThat(c1a).hasExactlyNumItems(l1a.length);    

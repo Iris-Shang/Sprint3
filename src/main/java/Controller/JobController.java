@@ -51,7 +51,7 @@ public class JobController
     void editbuttononclick(ActionEvent event) {
     	//skilllist.setEditable(true);
         FXMLLoader loader = new FXMLLoader();
-	    loader.setLocation(BB.class.getResource("../main/MainView.fxml"));
+	    loader.setLocation(BB.class.getResource("../main/Mainview.fxml"));
 	    BorderPane view;
 		try
 		{

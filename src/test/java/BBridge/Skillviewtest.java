@@ -193,7 +193,7 @@ public class Skillviewtest extends ApplicationTest {
 		
         m = new BBModel(stage,1000,3,7,12);
         FXMLLoader loader = new FXMLLoader();
-	    loader.setLocation(BB.class.getResource("../main/MainView.fxml"));
+	    loader.setLocation(BB.class.getResource("../main/Mainview.fxml"));
 	    BorderPane view;
 		try
 		{

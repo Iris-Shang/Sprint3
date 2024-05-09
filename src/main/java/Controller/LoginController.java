@@ -49,7 +49,7 @@ public class LoginController {
         	
             System.out.println("Login successful. Redirecting to User Personal view...");
             FXMLLoader loader = new FXMLLoader();
-    	    loader.setLocation(BB.class.getResource("../main/MainView.fxml"));
+    	    loader.setLocation(BB.class.getResource("../main/Mainview.fxml"));
     	    BorderPane view;
 			try
 			{
