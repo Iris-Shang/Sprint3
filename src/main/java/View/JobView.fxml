@@ -42,13 +42,13 @@
                   <HBox spacing="10">
                      <children>
                         <Label id="Namefield" text="Skill requirement:" />
-                        <ListView fx:id="skilllist" prefHeight="70.0" prefWidth="178.0" />
+                        <ListView id="skilllist" fx:id="skilllist" prefHeight="70.0" prefWidth="178.0" />
                      </children>
                   </HBox>
                   <HBox spacing="10">
                      <children>
                         <Label id="Namefield" text="Person applied" />
-                        <ListView id="appliedpersonlist" fx:id="appliedpersonlist" prefHeight="70.0" prefWidth="178.0" />
+                        <ListView id="applylist" fx:id="appliedpersonlist" prefHeight="70.0" prefWidth="178.0" />
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />

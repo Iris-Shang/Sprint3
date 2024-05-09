@@ -134,7 +134,7 @@ public class Main {
 		ArrayList<Integer> skill_JP = new ArrayList<Integer>();
 		ArrayList<Integer> sjp = new ArrayList<Integer>();
 		skill_JP.add(python.getID());
-		sjp.add(python.getID());
+		//sjp.add(python.getID());
 		sjp.add(java.getID());
 		JP = new JobPosting(11,"JP","Job",B,skill_JP);
 		JP.createinrest();

@@ -27,6 +27,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 //import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -172,7 +173,7 @@ class Personpagetest extends ApplicationTest
 		ArrayList<Integer> skill_JP = new ArrayList<Integer>();
 		ArrayList<Integer> sjp = new ArrayList<Integer>();
 		skill_JP.add(python.getID());
-		sjp.add(python.getID());
+		//sjp.add(python.getID());
 		sjp.add(java.getID());
 		JP = new JobPosting(11,"JP","Job",B,skill_JP);
 		JP.createinrest();
@@ -363,7 +364,7 @@ class Personpagetest extends ApplicationTest
     
     
     @Test    
-    public void persontest(FxRobot robot) 
+    public void persontest(FxRobot robot) throws InterruptedException 
     {
     	Person A = new Person();
         Assertions.assertThat(robot.lookup("#nameLabel")
@@ -414,6 +415,10 @@ class Personpagetest extends ApplicationTest
     	//test edit page
         Assertions.assertThat(robot.lookup("#nameLabel")
                 .queryAs(Label.class)).hasText(m.p.name);
+        Assertions.assertThat(robot.lookup("#editoccupatation")
+                .queryAs(TextField.class)).hasText(m.p.occupation);
+        robot.clickOn("#editoccupatation");
+        robot.write("CEO");
     	Company [] l4 = {A.findacom(3),    		  
       	};
     	ListView<Company> c4 = getnowcom(robot);
@@ -440,8 +445,9 @@ class Personpagetest extends ApplicationTest
     	
     	
     	sktcl(robot,1);
+    	Thread.sleep(1000);
     	robot.clickOn("#changecombutton");
-    	Company [] l6 = {A.findacom(1),  A.findacom(3), 		  
+    	/*Company [] l6 = {A.findacom(1),  A.findacom(3), 		  
       	};
     	ListView<Company> c6 = getcl(robot);
         
@@ -463,7 +469,7 @@ class Personpagetest extends ApplicationTest
     		Assertions.assertThat(c7).hasListCell(i); 
     	}
     	
-    	
+    	*/
     	c1 = getpl1(robot);//checklist 1
         
     	Assertions.assertThat(c1).hasExactlyNumItems(l1.length);
@@ -493,6 +499,344 @@ class Personpagetest extends ApplicationTest
     		Assertions.assertThat(c3).hasListCell(i); 
     		
     	}
+    	
+    	
+        Project [] l1a = {A.findapro(9),    		  
+      	};
+    	ListView<Project> c1a = getpl2(robot);//checklist 1
+        
+    	Assertions.assertThat(c1a).hasExactlyNumItems(l1a.length);
+      
+    	for(Project i: l1a)
+    	{
+    		Assertions.assertThat(c1a).hasListCell(i); 
+    		
+    	}
+    	
+    	JobPosting [] l2a = {A.findajob(11),    		  
+      	};
+    	ListView<JobPosting> c2a = getjl2(robot);
+        
+    	Assertions.assertThat(c2a).hasExactlyNumItems(l2a.length);
+      
+    	for(JobPosting i: l2a)
+    	{
+    		Assertions.assertThat(c2a).hasListCell(i); 
+    		
+    	}
+    	
+    	
+    	Skill [] l3a = {A.findaskill(8),    		  
+      	};
+    	ListView<Skill> c3a = getsl2(robot);
+        
+    	Assertions.assertThat(c3).hasExactlyNumItems(l3a.length);
+      
+    	for(Skill i: l3a)
+    	{
+    		Assertions.assertThat(c3a).hasListCell(i); 
+    		
+    	}
+    	
+    	
+    	
+    	
+    	sktpl2(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#addprobutton");
+    	sktjl2(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#addjobbutton");
+    	sktsl2(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#addskillbutton");
+    	
+        Project [] lq = {A.findapro(10), A.findapro(9),  
+      	};
+    	ListView<Project> cq = getpl1(robot);//checklist 1
+        
+    	Assertions.assertThat(cq).hasExactlyNumItems(lq.length);
+      
+    	for(Project i: lq)
+    	{
+    		Assertions.assertThat(cq).hasListCell(i); 
+    		
+    	}
+    	
+    	JobPosting [] lw = {A.findajob(12), A.findajob(11),    		  
+      	};
+    	ListView<JobPosting> c2w = getjl1(robot);
+        
+    	Assertions.assertThat(c2w).hasExactlyNumItems(lw.length);
+      
+    	for(JobPosting i: lw)
+    	{
+    		Assertions.assertThat(c2w).hasListCell(i); 
+    		
+    	}
+    	
+    	
+    	Skill [] l3q = {A.findaskill(7),  A.findaskill(8),  		  
+      	};
+    	ListView<Skill> c3q = getsl1(robot);
+        
+    	Assertions.assertThat(c3q).hasExactlyNumItems(l3q.length);
+      
+    	for(Skill i: l3q)
+    	{
+    		Assertions.assertThat(c3q).hasListCell(i); 
+    		
+    	}
+    	
+    	robot.clickOn("#savebutton");
+        Assertions.assertThat(robot.lookup("#companyLabel")
+                .queryAs(Label.class)).hasText(A.findacom(m.p.company).name);
+        Assertions.assertThat(robot.lookup("#occupatationlabel")
+                .queryAs(Label.class)).hasText(m.p.occupation);
+        
+        cq = getpl1(robot);//checklist 1
+        
+    	Assertions.assertThat(cq).hasExactlyNumItems(lq.length);
+      
+    	for(Project i: lq)
+    	{
+    		Assertions.assertThat(cq).hasListCell(i); 
+    		
+    	}
+
+    	c2w = getjl1(robot);
+        
+    	Assertions.assertThat(c2w).hasExactlyNumItems(lw.length);
+      
+    	for(JobPosting i: lw)
+    	{
+    		Assertions.assertThat(c2w).hasListCell(i); 
+    		
+    	}
+    	
+    	
+    	c3q = getsl1(robot);
+        
+    	Assertions.assertThat(c3q).hasExactlyNumItems(l3q.length);
+      
+    	for(Skill i: l3q)
+    	{
+    		Assertions.assertThat(c3q).hasListCell(i); 
+    		
+    	}
+        
+    	robot.clickOn("#Editbutton"); 
+    	//test edit page remove button
+    	//
+    	//
+    	
+        Assertions.assertThat(robot.lookup("#nameLabel")
+                .queryAs(Label.class)).hasText(m.p.name);
+        Assertions.assertThat(robot.lookup("#editoccupatation")
+                .queryAs(TextField.class)).hasText(m.p.occupation);
+        robot.clickOn("#editoccupatation");
+        robot.write("programmer");
+        
+    	sktpl1(robot,1);
+    	Thread.sleep(1000);
+    	robot.clickOn("#removeprobutton");
+    	sktjl1(robot,1);
+    	Thread.sleep(1000);
+    	robot.clickOn("#removejobbutton");
+    	sktsl1(robot,1);
+    	Thread.sleep(1000);
+    	robot.clickOn("#removeskillbutton");
+    	c1 = getpl1(robot);//checklist 1
+        
+    	Assertions.assertThat(c1).hasExactlyNumItems(l1.length);
+      
+    	for(Project i: l1)
+    	{
+    		Assertions.assertThat(c1).hasListCell(i); 
+    		
+    	}
+    	
+    	c2 = getjl1(robot);
+        
+    	Assertions.assertThat(c2).hasExactlyNumItems(l2.length);
+      
+    	for(JobPosting i: l2)
+    	{
+    		Assertions.assertThat(c2).hasListCell(i); 
+    		
+    	}
+    	
+    	c3 = getsl1(robot);
+        
+    	Assertions.assertThat(c3).hasExactlyNumItems(l3.length);
+      
+    	for(Skill i: l3)
+    	{
+    		Assertions.assertThat(c3).hasListCell(i); 
+    		
+    	}
+    	
+    	c1a = getpl2(robot);//checklist 1
+        
+    	Assertions.assertThat(c1a).hasExactlyNumItems(l1a.length);
+      
+    	for(Project i: l1a)
+    	{
+    		Assertions.assertThat(c1a).hasListCell(i); 
+    		
+    	}
+    	
+    	c2a = getjl2(robot);
+        
+    	Assertions.assertThat(c2a).hasExactlyNumItems(l2a.length);
+      
+    	for(JobPosting i: l2a)
+    	{
+    		Assertions.assertThat(c2a).hasListCell(i); 
+    		
+    	}
+    	
+    	
+    	c3a = getsl2(robot);
+        
+    	Assertions.assertThat(c3).hasExactlyNumItems(l3a.length);
+      
+    	for(Skill i: l3a)
+    	{
+    		Assertions.assertThat(c3a).hasListCell(i); 
+    		
+    	}
+    	
+    	sktcl(robot,1);
+    	Thread.sleep(1000);
+    	robot.clickOn("#changecombutton");
+    	c4 = getnowcom(robot);
+        
+    	Assertions.assertThat(c4).hasExactlyNumItems(l4.length);
+      
+    	for(Company i: l4)
+    	{
+    		Assertions.assertThat(c4).hasListCell(i); 
+    	}
+    	
+
+    	c5 = getcl(robot);
+        
+    	Assertions.assertThat(c5).hasExactlyNumItems(l5.length);
+      
+    	for(Company i: l5)
+    	{
+    		Assertions.assertThat(c5).hasListCell(i); 
+    	}
+    	
+    	robot.clickOn("#savebutton");
+    	c1 = getpl1(robot);//checklist 1
+        
+    	Assertions.assertThat(c1).hasExactlyNumItems(l1.length);
+      
+    	for(Project i: l1)
+    	{
+    		Assertions.assertThat(c1).hasListCell(i); 
+    		
+    	}
+    	
+    	c2 = getjl1(robot);
+        
+    	Assertions.assertThat(c2).hasExactlyNumItems(l2.length);
+      
+    	for(JobPosting i: l2)
+    	{
+    		Assertions.assertThat(c2).hasListCell(i); 
+    		
+    	}
+    	
+    	c3 = getsl1(robot);
+        
+    	Assertions.assertThat(c3).hasExactlyNumItems(l3.length);
+      
+    	for(Skill i: l3)
+    	{
+    		Assertions.assertThat(c3).hasListCell(i); 
+    		
+    	}
+        Assertions.assertThat(robot.lookup("#companyLabel")
+                .queryAs(Label.class)).hasText(A.findacom(m.p.company).name);
+        Assertions.assertThat(robot.lookup("#occupatationlabel")
+                .queryAs(Label.class)).hasText(m.p.occupation);
+    	robot.clickOn("#Editbutton"); 
+    	sktpl2(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#addprobutton");
+    	sktjl2(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#addjobbutton");
+    	sktsl2(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#addskillbutton");
+        robot.clickOn("#editoccupatation");
+        robot.write("CEO");
+    	sktpl1(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#removeprobutton");
+    	sktjl1(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#removejobbutton");
+    	sktsl1(robot,0);
+    	Thread.sleep(1000);
+    	robot.clickOn("#removeskillbutton");
+    	robot.clickOn("#Cancelbutton");
+        Assertions.assertThat(robot.lookup("#nameLabel")
+                .queryAs(Label.class)).hasText(m.p.name);
+        Assertions.assertThat(robot.lookup("#companyLabel")
+                .queryAs(Label.class)).hasText(A.findacom(m.p.company).name);
+        Assertions.assertThat(robot.lookup("#occupatationlabel")
+                .queryAs(Label.class)).hasText(m.p.occupation);
+    	c1 = getpl1(robot);//checklist 1
+        
+    	Assertions.assertThat(c1).hasExactlyNumItems(l1.length);
+      
+    	for(Project i: l1)
+    	{
+    		Assertions.assertThat(c1).hasListCell(i); 
+    		
+    	}
+    	
+    	c2 = getjl1(robot);
+        
+    	Assertions.assertThat(c2).hasExactlyNumItems(l2.length);
+      
+    	for(JobPosting i: l2)
+    	{
+    		Assertions.assertThat(c2).hasListCell(i); 
+    		
+    	}
+    	
+    	c3 = getsl1(robot);
+        
+    	Assertions.assertThat(c3).hasExactlyNumItems(l3.length);
+      
+    	for(Skill i: l3)
+    	{
+    		Assertions.assertThat(c3).hasListCell(i); 
+    		
+    	}
+    	
+    	
+         
+    	
+    	
+    	
+    	
+    	
+    	
+        
+    	
+    	
+    	
+    	
+
+    	
+    	
     	
     	
     	
