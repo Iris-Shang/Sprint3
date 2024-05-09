@@ -1,12 +1,12 @@
 package BBridge;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.BeforeAll;
+//import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 //import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.framework.junit5.Start;
 import org.testfx.util.WaitForAsyncUtils;
 
-import Controller.LoginController;
+//import Controller.LoginController;
 import Controller.Maincontroller;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -676,32 +676,36 @@ class Personpagetest extends ApplicationTest
     		
     	}
     	
+        Project [] l1aq = {A.findapro(9),    		  
+      	};
     	c1a = getpl2(robot);//checklist 1
         
-    	Assertions.assertThat(c1a).hasExactlyNumItems(l1a.length);
+    	Assertions.assertThat(c1a).hasExactlyNumItems(l1aq.length);
       
-    	for(Project i: l1a)
+    	for(Project i: l1aq)
     	{
     		Assertions.assertThat(c1a).hasListCell(i); 
     		
     	}
     	
     	c2a = getjl2(robot);
-        
-    	Assertions.assertThat(c2a).hasExactlyNumItems(l2a.length);
+    	JobPosting [] l2aq = {A.findajob(11),    		  
+      	};
+    	Assertions.assertThat(c2a).hasExactlyNumItems(l2aq.length);
       
-    	for(JobPosting i: l2a)
+    	for(JobPosting i: l2aq)
     	{
     		Assertions.assertThat(c2a).hasListCell(i); 
     		
     	}
     	
-    	
+    	Skill [] l3aq = {A.findaskill(8),    		  
+      	};
     	c3a = getsl2(robot);
         
-    	Assertions.assertThat(c3).hasExactlyNumItems(l3a.length);
+    	Assertions.assertThat(c3).hasExactlyNumItems(l3aq.length);
       
-    	for(Skill i: l3a)
+    	for(Skill i: l3aq)
     	{
     		Assertions.assertThat(c3a).hasListCell(i); 
     		

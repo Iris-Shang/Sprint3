@@ -135,12 +135,8 @@ public class Personeditcontroller
     @FXML
     void clickonchangecombutton(ActionEvent event) {
     	Company choose = companylist.getSelectionModel().getSelectedItem();
-		Company origin = this.model.p.findacom(this.model.p.getCompany());
-		origin.removeEmployee(this.model.p);
     	this.model.p.setCompany(choose.getID());
 		choose.addEmployee(this.model.p, this.model.p.getOccupation());
-		choose.updateinrest();
-		origin.updateinrest();
 		this.model.p.updater();
 		this.model.setP(this.model.getP().findanperson((this.model.getP().getID())));
 		this.model.updateper();

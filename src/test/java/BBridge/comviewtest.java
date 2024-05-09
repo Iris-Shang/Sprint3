@@ -246,6 +246,7 @@ class comviewtest extends ApplicationTest
     
     
     
+    
     private void sktpl2(FxRobot robot, int index)
     {
   	  Platform.runLater(()->{
@@ -334,6 +335,16 @@ class comviewtest extends ApplicationTest
   		  //clearAndSelect(index);
   	  });
   	  WaitForAsyncUtils.waitForFxEvents();
+  }
+    private Person selectper(FxRobot robot, int index)
+    {
+  		  ListView<Person> plist = getpl1(robot);
+  		  plist.scrollTo(index);
+  		  plist.getSelectionModel().select(index);
+  		  Person s = plist.getSelectionModel().getSelectedItem();
+  		  return s;
+  		  
+
   }
 
 
@@ -524,6 +535,9 @@ class comviewtest extends ApplicationTest
         		 A.findanperson(1000),A.findanperson(4),A.findanperson(6)
         		  
         	};
+    	Person temp = selectper(robot,1);
+    	assertEquals(true,A.findanperson(4).equals(temp));
+    	
 
         	ListView<Person> c1q = getpl1(robot);
           
@@ -531,6 +545,7 @@ class comviewtest extends ApplicationTest
           
         	for(Person i: l1q)
         	{
+        		
         		Assertions.assertThat(c1q).hasListCell(i); 
         		
         	}
@@ -664,7 +679,7 @@ class comviewtest extends ApplicationTest
        	robot.clickOn("#addprobutton");
        	sktjl2(robot,0);
        	robot.clickOn("#addjobbutton");
-    	sktpl1(robot,0);
+    	sktpl1(robot,1);
     	robot.clickOn("#removeemplbutton");
     	sktprl1(robot,0);
     	robot.clickOn("#removeprobutton");

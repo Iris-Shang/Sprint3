@@ -427,7 +427,10 @@ public class Entity
 			{
 				if(!i1.equals(i2)) 
 				{
-				//	System.out.println(e + "has some problem"+this+other);
+					System.out.println(e + "has some problem"+this+other);
+					System.out.println(other);
+					System.out.println(i2);
+					System.out.println(i1);
 					return false;
 				}
 			}

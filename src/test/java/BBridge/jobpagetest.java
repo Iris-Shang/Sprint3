@@ -327,6 +327,16 @@ class jobpagetest extends ApplicationTest
   	  });
   	  WaitForAsyncUtils.waitForFxEvents();
   }
+    private Person selectskilledPtemp(FxRobot robot, int index)
+    {
+  		  ListView<Person> plist = getpl1(robot);
+  		  plist.scrollTo(index);
+  		  plist.getSelectionModel().select(index);
+  		  Person s = plist.getSelectionModel().getSelectedItem();
+  		  return s;
+  		  
+
+  }
     public boolean checkini(FxRobot robot) 
     {
     	Person A = new Person();
@@ -353,6 +363,8 @@ class jobpagetest extends ApplicationTest
       	};
 
       	ListView<Person> c1 = getpl1(robot);
+      	Person check =  selectskilledPtemp(robot,0);
+      	assertEquals(true,A.findanperson(1000).equals(check));
         
       	Assertions.assertThat(c1).hasExactlyNumItems(l1.length);
         
@@ -627,10 +639,13 @@ class jobpagetest extends ApplicationTest
     		Assertions.assertThat(c0).hasListCell(i);   		
     	}
     	
+    	Person [] l1ab = {
+         		 A.findanperson(4),  A.findanperson(5), A.findanperson(6),
+         	};
     	c1a = getpl2(robot);
         
-      	Assertions.assertThat(c1a).hasExactlyNumItems(l1a.length);    
-      	for(Person i: l1a)
+      	Assertions.assertThat(c1a).hasExactlyNumItems(l1ab.length);    
+      	for(Person i: l1ab)
       	{
       		Assertions.assertThat(c1a).hasListCell(i); 
       		
@@ -644,7 +659,7 @@ class jobpagetest extends ApplicationTest
         robot.clickOn("#addskillbutton");
         sktpl2(robot,0);
         robot.clickOn("#addperb");
-    	sktpl1(robot,0);
+    	sktpl1(robot,1);
     	robot.clickOn("#removepersonb");
     	sktsl1(robot,0);
     	robot.clickOn("#removeskillbutton");

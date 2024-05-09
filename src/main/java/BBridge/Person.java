@@ -91,6 +91,7 @@ public class Person extends Entity
 			skill.links.put(ent.skilled_person,lispro);
 			
 		}
+		skill.updater();
 		updater();
 	}
 	
@@ -150,6 +151,7 @@ public class Person extends Entity
 			pro.links.put(ent.participant,lispro);
 			
 		}
+		pro.updateinrest();
 		updater();
 		
 	}
@@ -192,6 +194,7 @@ public class Person extends Entity
 			
 		}
 		updater();
+		job.updateinrest();
 	}
 	
 	public void removejob(JobPosting job) 
@@ -201,6 +204,7 @@ public class Person extends Entity
 		this.links.put(ent.applyjob, lis);
 		lis = job.links.get(ent.applied);
 		lis.remove(this.ID);
+		job.links.put(ent.applied,lis);
 		job.updateinrest();
 
 		updater();
