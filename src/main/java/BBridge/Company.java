@@ -117,6 +117,8 @@ public class Company extends Entity
 		this.links.put(ent.jobposting, lis);
 		jp.links.put(ent.edit, null);
 		jp.company = null;
+		this.updateinrest();
+		jp.updateinrest();
 	
 	}
 	public void removeEmployee(Person Employ) 
@@ -124,9 +126,10 @@ public class Company extends Entity
 		ArrayList<Integer> lis = this.links.get(ent.employee);
 		lis.remove(Employ.ID);
 		this.links.put(ent.employee, lis);
-		Employ.company = null;
-		Employ.occupation = null;
+		//Employ.company = null;
+		//Employ.occupation = null;
 		Employ.updater();
+		this.updateinrest();
 
 		
 	}

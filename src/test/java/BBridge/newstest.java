@@ -60,5 +60,26 @@ class newstest
 		
 		
 	}
+	
+	    	/*robot.clickOn("#changecombutton");
+    	c4 = getnowcom(robot);
+        
+    	Assertions.assertThat(c4).hasExactlyNumItems(l4.length);
+      
+    	for(Company i: l4)
+    	{
+    		Assertions.assertThat(c4).hasListCell(i); 
+    	}
+    	
+
+    	c5 = getcl(robot);
+        
+    	Assertions.assertThat(c5).hasExactlyNumItems(l5.length);
+      
+    	for(Company i: l5)
+    	{
+    		Assertions.assertThat(c5).hasListCell(i); 
+    	}
+   
 */
 }

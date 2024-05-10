@@ -407,7 +407,12 @@ public class Skillviewtest extends ApplicationTest {
     	robot.clickOn("#addskilledperson");
         selectskilledP(robot,1);
         robot.clickOn("#removeskilledperson");
+
+        robot.clickOn("#editskidesc");
+        robot.write("cancel check");
     	robot.clickOn("#cancelbutton");
+        Assertions.assertThat(robot.lookup("#desclabel")
+                .queryAs(Label.class)).hasText("new desc");
     	
     	plist = getlist(robot);
     	Assertions.assertThat(plist).hasExactlyNumItems(l6.length);

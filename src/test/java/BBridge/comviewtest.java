@@ -173,7 +173,7 @@ class comviewtest extends ApplicationTest
 		jp = new JobPosting(12,"jp","Job",C,sjp);
 		jp.createinrest();
 		p = new Person(1000,"user","CEO","default user",C.getID(),"abc");
-
+		p.createinrest();
 		C.addJobPosting(12,"jp","Job",sjp,"all");
 		C.addEmployee(p, "programmer");
 		C.addEmployee(D, "manager");
@@ -183,7 +183,7 @@ class comviewtest extends ApplicationTest
 		p.applyjob(jp);
 		p.addProject(R);
 		R.updateinrest();
-		p.createinrest();
+		p.updater();
 		python.updater();
 		C.updateinrest();
 		D.updater();
@@ -230,7 +230,7 @@ class comviewtest extends ApplicationTest
 
     {
      return (ListView<Person>) robot.lookup("#restperson")
-         .queryAll().iterator().next();
+         .queryAll().iterator().next(); 
     }
     
     private void sktpl1(FxRobot robot, int index)
@@ -446,7 +446,7 @@ class comviewtest extends ApplicationTest
     }
 
     @Test    
-    public void persontest(FxRobot robot) throws InterruptedException 
+    public void comtest(FxRobot robot) throws InterruptedException 
     {
     	Person A = new Person();
     	boolean a = checkini(robot);
@@ -531,15 +531,18 @@ class comviewtest extends ApplicationTest
     		
     	}
     	
+    	
     	Person [] l1q = {
         		 A.findanperson(1000),A.findanperson(4),A.findanperson(6)
         		  
         	};
     	Person temp = selectper(robot,1);
     	assertEquals(true,A.findanperson(4).equals(temp));
-    	
-
-        	ListView<Person> c1q = getpl1(robot);
+    	temp = selectper(robot,0);
+    	assertEquals(true,A.findanperson(1000).equals(temp));
+    	temp = selectper(robot,2);
+    	assertEquals(true,A.findanperson(6).equals(temp));    	
+     /*   	ListView<Person> c1q = getpl1(robot);
           
         	Assertions.assertThat(c1q).hasExactlyNumItems(l1q.length);
           
@@ -549,6 +552,7 @@ class comviewtest extends ApplicationTest
         		Assertions.assertThat(c1q).hasListCell(i); 
         		
         	}
+        	*/
         	
       	JobPosting [] l2q = {A.findajob(12),A.findajob(11),  		  
         	};
@@ -564,7 +568,7 @@ class comviewtest extends ApplicationTest
       	
           Project [] l0a = {A.findapro(9), A.findapro(10),    		  
         	};
-      	ListView<Project> c0a = getprl2(robot);//checklist 1
+      	ListView<Project> c0a = getprl1(robot);//checklist 1
           
       	Assertions.assertThat(c0a).hasExactlyNumItems(l0a.length);
         
@@ -576,7 +580,7 @@ class comviewtest extends ApplicationTest
       	robot.clickOn("#editdesc");
       	robot.write("new com desc");
       	robot.clickOn("#savebutton");
-    	c1q = getpl1(robot);
+    	ListView<Person> c1q = getpl1(robot);
     
     	Assertions.assertThat(c1q).hasExactlyNumItems(l1q.length);
   
@@ -595,7 +599,7 @@ class comviewtest extends ApplicationTest
     		Assertions.assertThat(c2q).hasListCell(i); 
 		
     	}
-    	c0a = getprl2(robot);//checklist 1
+    	c0a = getprl1(robot);//checklist 1
   
     	Assertions.assertThat(c0a).hasExactlyNumItems(l0a.length);
 
@@ -606,8 +610,8 @@ class comviewtest extends ApplicationTest
     	}
 	
     	robot.clickOn("#Editbutton");
-    	robot.clickOn("#editdesc");
-    	robot.write("companyC");
+    	//robot.clickOn("#editdesc");
+    	//robot.write("companyC");
     	c1q = getpl1(robot);
     
     	Assertions.assertThat(c1q).hasExactlyNumItems(l1q.length);
@@ -627,7 +631,7 @@ class comviewtest extends ApplicationTest
     		Assertions.assertThat(c2q).hasListCell(i); 
 		
     	}
-    	c0a = getprl2(robot);//checklist 1
+    	c0a = getprl1(robot);//checklist 1
   
     	Assertions.assertThat(c0a).hasExactlyNumItems(l0a.length);
 
@@ -649,7 +653,7 @@ class comviewtest extends ApplicationTest
         
     	Assertions.assertThat(c0).hasExactlyNumItems(e.length);
       
-    	for(Project i: e)
+    	for(Project i: e)//
     	{
     		Assertions.assertThat(c0).hasListCell(i); 
     		
@@ -677,17 +681,41 @@ class comviewtest extends ApplicationTest
        	robot.clickOn("#addpersonbutton");
        	sktprl2(robot,0);
        	robot.clickOn("#addprobutton");
-       	sktjl2(robot,0);
-       	robot.clickOn("#addjobbutton");
     	sktpl1(robot,1);
     	robot.clickOn("#removeemplbutton");
-    	sktprl1(robot,0);
-    	robot.clickOn("#removeprobutton");
-    	sktjl1(robot,0);
-    	robot.clickOn("#removejobpostbutton");
+       	sktjl2(robot,0);
+       	robot.clickOn("#addjobbutton");
+    	robot.clickOn("#editdesc");
+    	robot.write("Cancel");
     	robot.clickOn("#cancelbutton");
-    	a = checkini(robot);
-    	assertTrue(a);
+
+        Assertions.assertThat(robot.lookup("#nameLabel")
+                .queryAs(Label.class)).hasText(m.com.name);
+        Assertions.assertThat(robot.lookup("#descLabel")
+                .queryAs(Label.class)).hasText(m.com.description);  	
+    	temp = selectper(robot,0);
+    	assertEquals(true,A.findanperson(1000).equals(temp));
+    	temp = selectper(robot,1);
+    	assertEquals(true,A.findanperson(4).equals(temp));  
+      	
+		 ListView<JobPosting> plist = getjl1(robot);
+		 plist.scrollTo(0);
+		 plist.getSelectionModel().select(0);
+		JobPosting s = plist.getSelectionModel().getSelectedItem();
+	    assertEquals(true,A.findajob(12).equals(s)); 
+       
+	    
+	    Project [] l0W = {A.findapro(9),    		  
+      	};
+    	ListView<Project> c0W = getprl1(robot);//checklist 1
+        
+    	Assertions.assertThat(c0W).hasExactlyNumItems(l0W.length);
+      
+    	for(Project i: l0W)
+    	{
+    		Assertions.assertThat(c0W).hasListCell(i); 
+    		
+    	}
     	
     	
     	

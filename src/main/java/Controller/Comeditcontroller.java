@@ -100,7 +100,7 @@ public class Comeditcontroller {
     @FXML
     void cilckonaddjobbutton(ActionEvent event) {
     	JobPosting choose = restjob.getSelectionModel().getSelectedItem();
-    	this.model.com.addJobPosting(choose.getID(), choose.getName(),choose.getDescription(),choose.getSkills(),"random");
+    	this.model.com.addJobPosting(choose.getID(), choose.getName(),choose.getDescription(),choose.getSkills(),"follow");
     	choose.setCompany(this.model.com.getID());
     	choose.updateinrest();
 		this.model.com.updateinrest();
@@ -139,8 +139,8 @@ public class Comeditcontroller {
     void cilckonremoveemplbutton(ActionEvent event) {
     	Person choose = employeelist.getSelectionModel().getSelectedItem();
     	this.model.com.removeEmployee(choose);
-    	choose.setCompany(null);
-    	choose.updater();
+    	//choose.setCompany(null);
+    	//choose.updater();
 		this.model.com.updateinrest();
     	this.model.setCom(this.model.com.findacom(this.model.com.getID()));
     	this.model.updatecom();
@@ -185,7 +185,7 @@ public class Comeditcontroller {
     void clickonremovejobpostbutton(ActionEvent event) {
     	JobPosting choose = comjoblist.getSelectionModel().getSelectedItem();
     	this.model.com.removeJobPosting(choose);
-    	choose.setCompany(null);
+    	//choose.setCompany(null);
     	choose.updateinrest();
 		this.model.com.updateinrest();
     	this.model.setCom(this.model.com.findacom(this.model.com.getID()));
@@ -201,7 +201,7 @@ public class Comeditcontroller {
     	choose.updateinrest();
 		this.model.com.updateinrest();
     	this.model.setCom(this.model.com.findacom(this.model.com.getID()));
-    	this.model.updatecom();
+    	this.model.updatecom(); 
     	
 
     }

@@ -663,6 +663,8 @@ class jobpagetest extends ApplicationTest
     	robot.clickOn("#removepersonb");
     	sktsl1(robot,0);
     	robot.clickOn("#removeskillbutton");
+        robot.clickOn("#editdesc");
+        robot.write("cancel");
     	robot.clickOn("#cancelbutton");
     	a = checkini(robot);
     	assertTrue(a);

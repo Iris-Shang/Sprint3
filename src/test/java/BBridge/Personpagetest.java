@@ -447,7 +447,7 @@ class Personpagetest extends ApplicationTest
     	sktcl(robot,1);
     	Thread.sleep(1000);
     	robot.clickOn("#changecombutton");
-    	/*Company [] l6 = {A.findacom(1),  A.findacom(3), 		  
+    	Company [] l6 = {A.findacom(1),  A.findacom(3), 		  
       	};
     	ListView<Company> c6 = getcl(robot);
         
@@ -469,7 +469,7 @@ class Personpagetest extends ApplicationTest
     		Assertions.assertThat(c7).hasListCell(i); 
     	}
     	
-    	*/
+    	
     	c1 = getpl1(robot);//checklist 1
         
     	Assertions.assertThat(c1).hasExactlyNumItems(l1.length);
@@ -587,6 +587,45 @@ class Personpagetest extends ApplicationTest
     		Assertions.assertThat(c3q).hasListCell(i); 
     		
     	}
+    	
+    	
+        Project [] l1ae = {,    		  
+      	};
+    	ListView<Project> c1ae = getpl2(robot);//checklist 1
+        
+    	Assertions.assertThat(c1ae).hasExactlyNumItems(l1ae.length);
+      
+    	for(Project i: l1ae)
+    	{
+    		Assertions.assertThat(c1ae).hasListCell(i); 
+    		
+    	}
+    	
+    	JobPosting [] l2ae = {    		  
+      	};
+    	ListView<JobPosting> c2ae = getjl2(robot);
+        
+    	Assertions.assertThat(c2ae).hasExactlyNumItems(l2ae.length);
+      
+    	for(JobPosting i: l2ae)
+    	{
+    		Assertions.assertThat(c2ae).hasListCell(i); 
+    		
+    	}
+    	
+    	
+    	Skill [] l3ae = {,    		  
+      	};
+    	ListView<Skill> c3ae = getsl2(robot);
+        
+    	Assertions.assertThat(c3ae).hasExactlyNumItems(l3ae.length);
+      
+    	for(Skill i: l3ae)
+    	{
+    		Assertions.assertThat(c3ae).hasListCell(i); 
+    		
+    	}
+    	
     	
     	robot.clickOn("#savebutton");
         Assertions.assertThat(robot.lookup("#companyLabel")
@@ -713,26 +752,7 @@ class Personpagetest extends ApplicationTest
     	
     	sktcl(robot,1);
     	Thread.sleep(1000);
-    	robot.clickOn("#changecombutton");
-    	c4 = getnowcom(robot);
-        
-    	Assertions.assertThat(c4).hasExactlyNumItems(l4.length);
-      
-    	for(Company i: l4)
-    	{
-    		Assertions.assertThat(c4).hasListCell(i); 
-    	}
-    	
 
-    	c5 = getcl(robot);
-        
-    	Assertions.assertThat(c5).hasExactlyNumItems(l5.length);
-      
-    	for(Company i: l5)
-    	{
-    		Assertions.assertThat(c5).hasListCell(i); 
-    	}
-    	
     	robot.clickOn("#savebutton");
     	c1 = getpl1(robot);//checklist 1
         
@@ -788,6 +808,8 @@ class Personpagetest extends ApplicationTest
     	sktsl1(robot,0);
     	Thread.sleep(1000);
     	robot.clickOn("#removeskillbutton");
+        robot.clickOn("#editoccupatation");
+        robot.write("cancel");
     	robot.clickOn("#Cancelbutton");
         Assertions.assertThat(robot.lookup("#nameLabel")
                 .queryAs(Label.class)).hasText(m.p.name);

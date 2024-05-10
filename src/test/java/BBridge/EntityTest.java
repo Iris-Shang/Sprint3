@@ -546,8 +546,7 @@ class EntityTest
 		check = comp.data();
 		assertEquals(true,check.equals(C));
 		
-		assertEquals(F.occupation,null);
-		assertEquals(F.company,null);
+
 		lis.remove(F.ID);
 		assertEquals(lis,C.links.get(ent.employee));
 		
