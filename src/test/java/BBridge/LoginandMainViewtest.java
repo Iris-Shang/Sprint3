@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.BeforeAll;
+//import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 //import org.junit.jupiter.api.Test;
@@ -19,15 +19,15 @@ import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.framework.junit5.Start;
 
 import Controller.LoginController;
-import Controller.Maincontroller;
+//import Controller.Maincontroller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 //import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
+//import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import main.BB;
 import model.BBModel;
-import model.ViewTransitionalModel;
+//import model.ViewTransitionalModel;
 
 
 @ExtendWith(ApplicationExtension.class)
