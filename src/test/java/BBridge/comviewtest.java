@@ -57,6 +57,7 @@ class comviewtest extends ApplicationTest
 	Integer i1;
 	Stage stage;
 	BBModel m;
+	
 	//ArrayList<Entity> alltest = new ArrayList<Entity>();	
 
 	 
